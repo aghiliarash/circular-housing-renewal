@@ -161,7 +161,9 @@ If you utilize this pipeline or framework, please cite the associated manuscript
   url = {https://github.com/[your-username]/circular-housing-renewal-inflation}
 }
 ```
+## 📜 License
 
+MIT License. free for academic and research use with attribution. See [LICENSE](LICENSE) for full text.
 ---
 
 ## ✉️ Contact & Contributing
