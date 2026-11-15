@@ -163,7 +163,7 @@ If you utilize this pipeline or framework, please cite the associated manuscript
 ```
 ## 📜 License
 
-MIT License. free for academic and research use with attribution. See [LICENSE](LICENSE) for full text.
+**MIT License. free for academic and research use with attribution. See [LICENSE](LICENSE) for full text.
 ---
 
 ## ✉️ Contact & Contributing
