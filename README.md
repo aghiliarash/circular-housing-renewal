@@ -1,41 +1,32 @@
 # Circular Housing Renewal under Inflation
 
-**Reproducible analysis of cost risk, carbon attribution, and grant portfolios for circular structural retrofits in Istanbul**
+**Reproducible analysis of cost risk, carbon attribution, and grant portfolios for circular structural retrofits in Istanbul.**
 
 ## Overview
 
-This repository contains a simulation and verification pipeline for comparing circular structural retrofits with demolition and reconstruction under construction-price uncertainty. The study focuses on municipal renewal portfolios in the context of Türkiye's Law No. 6306 and evaluates financial costs, whole-life carbon, and grant-budget reliability.
+This repository accompanies a study comparing circular structural retrofits with demolition and reconstruction under construction-price uncertainty. It provides reproducible scripts for municipal renewal portfolio analysis in the context of Türkiye's Law No. 6306, covering financial cost, whole-life carbon, and grant-budget reliability.
 
-### Research scope
-
-The analysis combines:
-
-- Construction-price calibration and stochastic replacement-cost scenarios
-- Deterministic and simulated life-cycle cost comparisons across building alternatives
-- Whole-life carbon accounting, including grid-emissions pathways
-- Chance-constrained municipal grant portfolio comparisons
-- Sensitivity summaries and automated reconciliation checks
-- Optional geospatial validation using OpenStreetMap and VoxCity-related data
-
-The numerical results produced by the core pipeline are model outputs under the stated assumptions; they are not estimates from a representative sample of observed building projects.
+The numerical results are conditional on the specified models and assumptions; they are not estimates from a representative sample of observed building projects.
 
 ## Quick start
 
 ### Core analysis and figures
 
-The core pipeline runs locally without live geospatial data:
+Requires Python 3.11 or later. Clone the repository and install the core dependencies:
 
 ```bash
+git clone https://github.com/aghiliarash/circular-housing-renewal.git
+cd circular-housing-renewal
 python -m pip install -r requirements.txt
 python appendix_controls_v2.py
 python generate_all_figures.py
 ```
 
-The first script generates input series, analysis tables, a verification report, a claims register, and a run log. The second generates publication figures. Outputs are written to `data/` and `outputs/`.
+The calculation script creates input series, analysis tables, a verification report, a claims register, and a run log. The figure script generates the publication figures. Generated files are written to `data/` and `outputs/`; they are not tracked by Git.
 
 ### Optional live geospatial validation
 
-The geospatial workflow requires internet access and the larger dependency set in `environment.yml`:
+The optional geospatial workflow requires Conda, internet access, and the larger dependency set in `environment.yml`:
 
 ```bash
 conda env create -f environment.yml
@@ -43,56 +34,48 @@ conda activate ual_istanbul
 python run_ual_validation.py
 ```
 
-This script may request data from OpenStreetMap/Overpass and other external services. It can also use optional VoxCity and ZenSVI sources. Review the configuration at the top of `run_ual_validation.py` before enabling optional downloads or changing cache and output settings.
+The script may request data from OpenStreetMap/Overpass and other external services, and can use optional VoxCity and ZenSVI sources. Review the settings at the top of `run_ual_validation.py` before enabling downloads or changing cache and output locations.
 
 ## Repository contents
 
-| File or directory | Purpose |
+| Path | Description |
 |---|---|
-| `appendix_controls_v2.py` | Core calculation pipeline and CHK-1..7 verification suite |
-| `generate_all_figures.py` | Offline generation of publication figures |
-| `run_ual_validation.py` | Optional geospatial validation workflow |
-| `config/study_spec.yaml` | Study parameters and documented design decisions |
-| `requirements.txt` | Dependencies for the offline pipeline |
+| `appendix_controls_v2.py` | Core calculations and CHK-1..7 verification suite |
+| `generate_all_figures.py` | Offline publication-figure generation |
+| `run_ual_validation.py` | Optional live geospatial validation |
+| `config/study_spec.yaml` | Study parameters and design decisions |
+| `requirements.txt` | Core pipeline dependencies |
 | `environment.yml` | Conda environment for geospatial validation |
-| `data/` | Generated macroeconomic and grid-emissions series |
+| `data/` | Generated macroeconomic and grid-emissions input series |
 | `outputs/` | Generated tables, reports, verification results, and figures |
 
-Generated data and outputs are not committed; the scripts create their directories when run.
+The scripts create generated data and output directories when run; generated files are excluded from version control.
 
 ## Methodological approach
 
-### 1. Cost and price uncertainty
+### Cost and price uncertainty
 
-The core script calibrates macroeconomic series and compares deterministic replacement-cost accounts with paired stochastic draws. It exports cost-risk summaries and quartile comparisons for the alternatives specified in the pipeline.
+The core pipeline calibrates macroeconomic series and compares deterministic replacement-cost accounts with paired stochastic draws. It exports cost-risk summaries and quartile comparisons for the modeled alternatives.
 
-### 2. Carbon accounting
+### Carbon accounting
 
 The carbon module accounts for upfront and replacement embodied emissions and operational emissions under rapid, delayed, and static grid-decarbonization pathways. It exports the grid vectors and carbon ledger.
 
-### 3. Portfolio assessment
+### Portfolio assessment
 
 The portfolio module enumerates project subsets and calculates bundled grant costs, agency value, and feasibility probabilities under the configured grant-cost variation.
 
-### 4. Verification and figures
+### Verification and figures
 
-The calculation script runs seven reconciliation checks and writes their results to `outputs/verification_report.json`. Figure scripts produce the core study figures; the live validation script adds optional geospatial tables and figures when its dependencies and data sources are available.
+The calculation script runs seven reconciliation checks and writes their results to `outputs/verification_report.json`. The figure script produces the core study figures. The optional live validation script generates additional geospatial tables and figures when dependencies and data sources are available.
 
 ## Generated outputs
 
-The core analysis writes:
-
-- `outputs/verification_report.json` and `outputs/appendix_controls_v2_log.txt`
-- `outputs/JUPDD_Law6306_Claims_Register.csv`
-- Tables in `outputs/tables/`, including cost-risk, deterministic-account, carbon-ledger, portfolio, and sensitivity summaries
-- Figures in `outputs/figures/` in PDF and PNG formats
-- Generated input series in `data/`
-
-The optional geospatial workflow writes its additional tables, report, cache, and figures under `outputs/ual_validation/`.
+Core outputs include `outputs/verification_report.json`, `outputs/appendix_controls_v2_log.txt`, `outputs/JUPDD_Law6306_Claims_Register.csv`, analysis tables in `outputs/tables/`, and PDF/PNG figures in `outputs/figures/`. Generated input series are saved in `data/`. The optional geospatial workflow writes its tables, report, cache, and figures under `outputs/ual_validation/`.
 
 ## Interpretation and limitations
 
-This repository is a reproducible computational analysis, not a field-deployment tool. Results depend on the specified model structure, parameter values, and scenario assumptions. Geospatial checks rely on external data and may vary as those sources change or become unavailable. Interpret all reported comparisons within these assumptions; they should not be read as causal estimates from observed outcomes.
+This repository provides a reproducible computational analysis, not a field-deployment tool. Results depend on the specified model structure, parameter values, and scenario assumptions. Geospatial checks rely on external data and may vary as those sources change or become unavailable. Interpret the comparisons within these assumptions; they are not causal estimates from observed outcomes.
 
 ## License
 
