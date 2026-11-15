@@ -1,0 +1,25 @@
+name: ual_istanbul
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - gdal
+  - geopandas
+  - osmnx
+  - networkx
+  - shapely
+  - pyproj
+  - timezonefinder
+  - scipy
+  - pandas
+  - numpy
+  - matplotlib
+  - pyyaml
+  - pip
+  - pip:
+      - torch
+      - torchvision
+      - voxcity
+      - zensvi
+      - urbanity
