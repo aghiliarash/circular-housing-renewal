@@ -39,6 +39,17 @@ outputs/                     Generated tables, reports, and figures
 
 Generated data and outputs are not checked in; the scripts create their output directories when run.
 
-## License
+## 📜 License
 
-Code: MIT. Data and tables: CC-BY 4.0.
+MIT License. free for academic and research use with attribution. See [LICENSE](LICENSE) for full text.
+
+
+---
+
+## ✉️ Contact & Contributing
+
+Questions or feedback? Please open a GitHub issue.
+
+**Last Updated:** 2026  
+**Maintainer:** aghiliarash
+
