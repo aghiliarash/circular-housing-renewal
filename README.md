@@ -1,6 +1,6 @@
 # Circular Housing Renewal under Inflation
 
-Companion code for the ASCE *Journal of Urban Planning and Development* study on cost risk, carbon attribution, and grant portfolios for circular structural retrofits versus demolition and reconstruction in Istanbul.
+Companion code for the study on cost risk, carbon attribution, and grant portfolios for circular structural retrofits versus demolition and reconstruction in Istanbul.
 
 ## Core pipeline
 
