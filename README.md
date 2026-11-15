@@ -157,8 +157,8 @@ If you utilize this pipeline or framework, please cite the associated manuscript
   author = {[Author Names]},
   title = {Circular Housing Renewal under Inflation: Cost Risk, Carbon Attribution, and Grant Portfolios},
   year = {2026},
-  journal = {Journal of Urban Planning and Development (ASCE)},
-  url = {https://github.com/[your-username]/circular-housing-renewal-inflation}
+  journal = { },
+  url = {https://github.com/aghiliarash/circular-housing-renewal-inflation}
 }
 ```
 
