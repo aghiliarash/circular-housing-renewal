@@ -1,0 +1,43 @@
+run_metadata:
+  run_id: "JUPDD-2026-LAW6306-FINAL"
+  target_journal: "ASCE Journal of Urban Planning and Development"
+  seed: 20260410
+  n_draws: 40000
+
+design_decisions:
+  lock_in_mode: "anchored"
+  tender_lock_in_years: 2
+  price_mapping: "discrete_product"
+  salvage_mean_mode: "virgin_passthrough"
+  include_enabling_cost_in_tier1: true
+  sensitivity_comparators: ["1C", "1A"]
+  sobol_functional: "conditional_mean"
+
+accounting:
+  horizon_years: 30
+  eol_memo_year: 60
+  r_real: 0.03
+  numeraire_try_per_usd: 18.60
+  replacement_cycles: [10, 15, 20, 25]
+  weights_equal: [0.25, 0.25, 0.25, 0.25]
+  weights_front_loaded: [0.4677, 0.2500, 0.2000, 0.0823]
+  carbon_price_base: 75.0
+  b4_discount_factor: 0.6043
+  yr60_discount_factor: 0.1697
+
+alternatives:
+  "1A": {c_init: 50997.0, r_rep0: 18000.0, q_gas: 8200.0, q_elec: 2800.0, pv_cd: 4705.0, pv_res: -6375.0, a1_a5: 54.0, b4: 8.2, c1_c4: 8.8, mod_d: -3.0}
+  "1B": {c_init: 50341.0, r_rep0: 18000.0, q_gas: 8200.0, q_elec: 2800.0, pv_cd: 4705.0, pv_res: -6375.0, a1_a5: 54.0, b4: 8.2, c1_c4: 8.8, mod_d: -3.0}
+  "1C": {c_init: 55191.0, r_rep0: 16200.0, q_gas: 0.0, q_elec: 3100.0, pv_cd: 4705.0, pv_res: -6375.0, a1_a5: 55.2, b4: 7.0, c1_c4: 8.8, mod_d: -3.0}
+  "2A": {c_init: 64869.0, r_rep0: 5500.0, q_gas: 0.0, q_elec: 3100.0, pv_cd: 650.0, pv_res: -10450.0, a1_a5: 38.4, b4: 3.6, c1_c4: 3.5, mod_d: -6.0}
+  "2B": {c_init: 64213.0, r_rep0: 5500.0, q_gas: 0.0, q_elec: 3100.0, pv_cd: 650.0, pv_res: -10450.0, a1_a5: 38.4, b4: 3.6, c1_c4: 3.5, mod_d: -6.0}
+
+portfolio:
+  cv: 0.03
+  alpha: 0.95
+  ceilings: [425000, 450000, 475000, 500000, 525000, 525100, 550000, 575000]
+  projects:
+    B: {bldgs: 20, units: 392, grant_unb: 210526.32, grant_bnd: 200000.0, agency_pv: 1000000.0, budget_u: 10953.0, carbon_u: 31.50}
+    C: {bldgs: 18, units: 350, grant_unb: 210526.32, grant_bnd: 200000.0, agency_pv: 600000.0, budget_u: 9723.0, carbon_u: 24.80}
+    D: {bldgs: 25, units: 500, grant_unb: 263157.89, grant_bnd: 250000.0, agency_pv: 600000.0, budget_u: 8783.0, carbon_u: 30.40}
+    F: {bldgs: 10, units: 200, grant_unb: 105263.16, grant_bnd: 100000.0, agency_pv: 280000.0, budget_u: 10423.0, carbon_u: 23.65}
